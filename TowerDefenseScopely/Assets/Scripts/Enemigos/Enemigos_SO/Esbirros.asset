@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyTipe: 1
   attackTargetType: 2
   damageType: 0
-  maxHealth: 100
+  maxHealth: 10
   moveSpeed: 2
   attackDamage: 10
   attackRange: 1.5
