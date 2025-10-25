@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private Vector2 initialDirection;
 
     [Header("Detección Torre")]
-    public float detectionRange = 10f; // Rango en el que el enemigo "ve" la torre
+    public float detectionRange = 20f; // Rango en el que el enemigo "ve" la torre
     private Transform mainTower;      // Referencia a la torre del rey
     private bool chasingTower = false; // Si ya está yendo hacia la torre
 
@@ -53,24 +53,20 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        // Si ya está persiguiendo la torre
-        if (chasingTower)
-        {
-            MoveTowardsTarget(mainTower.position);
-            return;
-        }
-
-        // Si todavía no la persigue, camina recto
-        rb.velocity = initialDirection * currentSpeed;
-
         // Calcula la distancia hasta la torre
         float distanceToTower = Vector2.Distance(transform.position, mainTower.position);
 
-        // Si entra en rango, cambia de modo
+        // ✅ Si está dentro del rango: moverse hacia la torre
         if (distanceToTower <= detectionRange)
         {
-            chasingTower = true;
-            Debug.Log($"{gameObject.name} ha detectado la torre del rey y cambia su rumbo.");
+            MoveTowardsTarget(mainTower.position);
+            chasingTower=true;
+        }
+        else
+        {
+            // ✅ Si está fuera del rango: seguir recto
+            rb.velocity = initialDirection * currentSpeed;
+            chasingTower = false;
         }
     }
 
@@ -143,5 +139,5 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
-}
 #endif
+}
