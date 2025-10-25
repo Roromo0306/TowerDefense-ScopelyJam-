@@ -4,7 +4,8 @@ public enum TipoAtacante
     TorreDaga,
     TorreMachinRocket,
     TorreDragon,
-    TorreMago
+    TorreMago,
+    Cannon
 }
 
 public enum TipoAtaque
