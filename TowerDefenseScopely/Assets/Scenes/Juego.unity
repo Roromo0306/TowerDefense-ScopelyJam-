@@ -11076,6 +11076,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1689379979}
     - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: Bala
+      value: 
+      objectReference: {fileID: 5414267853576396411, guid: b5ef3a9f6eaf14f41b51cd295058e0c9, type: 3}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: enemy
       value: 
       objectReference: {fileID: 504896703}
