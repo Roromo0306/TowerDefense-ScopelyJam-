@@ -21,11 +21,7 @@ public class Enemy : MonoBehaviour
     protected void FixedUpdate()
     {
         MoveTowardsTarget();
-<<<<<<< Updated upstream
-       // Debug.Log(currentHealth);
-=======
-        
->>>>>>> Stashed changes
+
     }
 
     protected void MoveTowardsTarget()
