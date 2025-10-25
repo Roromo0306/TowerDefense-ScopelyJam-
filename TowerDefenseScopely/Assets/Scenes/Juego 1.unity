@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 665254483}
   tilemap: {fileID: 190946027}
-  canvas: {fileID: 0}
+  canvas: {fileID: 1805014914710220090}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   torretas:
@@ -10967,6 +10967,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1407959105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &1805014914710220090 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6681139349960363905, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+  m_PrefabInstance: {fileID: 5022814681858843323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4006201621277833684 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8227087445180275567, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}

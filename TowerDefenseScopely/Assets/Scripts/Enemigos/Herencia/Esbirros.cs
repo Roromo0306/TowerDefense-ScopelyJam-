@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Esbirros : Enemy
 {
-  protected void MoveTowardsTarget()
+    protected void MoveTowardsTarget()
     {
-        base.MoveTowardsTarget();   
+        if (currentTarget != null)
+        {
+            base.MoveTowardsTarget(currentTarget.position);
+        }
     }
 }

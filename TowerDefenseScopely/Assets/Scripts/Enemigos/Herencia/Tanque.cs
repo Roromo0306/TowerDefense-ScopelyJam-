@@ -7,6 +7,9 @@ public class Tanque : Enemy
 
     protected void MoveTowardsTarget()
     {
-        base.MoveTowardsTarget();
+        if (currentTarget != null)
+        {
+            base.MoveTowardsTarget(currentTarget.position);
+        }
     }
 }

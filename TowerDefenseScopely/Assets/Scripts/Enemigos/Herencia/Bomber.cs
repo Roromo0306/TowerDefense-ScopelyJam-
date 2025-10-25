@@ -70,5 +70,13 @@ public class BomberEnemy : Enemy
 
         return closest;
     }
+
+    protected void MoveTowardsTarget()
+    {
+        if (currentTarget != null)
+        {
+            base.MoveTowardsTarget(currentTarget.position);
+        }
+    }
 }
 

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+Ôªøusing System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,46 +10,74 @@ public class Enemy : MonoBehaviour
     protected Transform currentTarget;
     protected float currentHealth;
 
-    // Velocidad base leÌda desde el ScriptableObject (no tocar el SO)
     protected float baseSpeed;
-    // Velocidad que usamos en movimiento (mutable en runtime)
     public float currentSpeed { get; protected set; }
 
-    // Contador simple para manejar m˙ltiples slows superpuestos
     private int slowersCount = 0;
+
+    // üß≠ Direcci√≥n inicial (l√≠nea recta)
+    private Vector2 initialDirection;
+
+    [Header("Detecci√≥n Torre")]
+    public float detectionRange = 10f; // Rango en el que el enemigo "ve" la torre
+    private Transform mainTower;      // Referencia a la torre del rey
+    private bool chasingTower = false; // Si ya est√° yendo hacia la torre
 
     protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = enemyData.maxHealth;
-
-        // Copiamos desde el ScriptableObject, sin modificar el SO
         baseSpeed = enemyData.moveSpeed;
         currentSpeed = baseSpeed;
 
-        FindInitialTarget();
+        // Direcci√≥n inicial hacia la derecha (puedes cambiarla si tus enemigos salen de otro lado)
+        initialDirection = Vector2.right;
+
+        // Busca la torre
+        GameObject tower = GameObject.FindGameObjectWithTag("MainTower");
+        if (tower != null)
+            mainTower = tower.transform;
     }
 
     protected void FixedUpdate()
     {
-        MoveTowardsTarget();
+        HandleMovement();
     }
 
-    protected void MoveTowardsTarget()
+    private void HandleMovement()
     {
-        if (currentTarget == null) return;
-
-        Vector2 direction = (currentTarget.position - transform.position).normalized;
-        rb.velocity = direction * currentSpeed;
-    }
-
-    protected void FindInitialTarget()
-    {
-        GameObject tower = GameObject.FindGameObjectWithTag("MainTower");
-        if (tower != null)
+        // Si no hay torre, sigue caminando recto
+        if (mainTower == null)
         {
-            currentTarget = tower.transform;
+            rb.velocity = initialDirection * currentSpeed;
+            return;
         }
+
+        // Si ya est√° persiguiendo la torre
+        if (chasingTower)
+        {
+            MoveTowardsTarget(mainTower.position);
+            return;
+        }
+
+        // Si todav√≠a no la persigue, camina recto
+        rb.velocity = initialDirection * currentSpeed;
+
+        // Calcula la distancia hasta la torre
+        float distanceToTower = Vector2.Distance(transform.position, mainTower.position);
+
+        // Si entra en rango, cambia de modo
+        if (distanceToTower <= detectionRange)
+        {
+            chasingTower = true;
+            Debug.Log($"{gameObject.name} ha detectado la torre del rey y cambia su rumbo.");
+        }
+    }
+
+    public void MoveTowardsTarget(Vector2 targetPosition)
+    {
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        rb.velocity = direction * currentSpeed;
     }
 
     public void TakeDamage(float amount, DamageType damageType)
@@ -70,7 +97,7 @@ public class Enemy : MonoBehaviour
             finalDamage *= (1 - enemyData.magicalResistance);
 
         currentHealth -= finalDamage;
-        Debug.Log(enemyData.enemyName + " recibiÛ " + finalDamage + " de daÒo " + damageType);
+        Debug.Log(enemyData.enemyName + " recibi√≥ " + finalDamage + " de da√±o " + damageType);
 
         if (currentHealth <= 0)
             Die();
@@ -89,44 +116,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Aplica una ralentizaciÛn (amount: multiplicador, ej 0.5f = 50% speed) por duraciÛn (segundos, en tiempo real)
     public IEnumerator ApplySlow(float amount, float duration)
     {
-        // Si el enemigo ya est· muerto, salimos
         if (this == null || gameObject == null) yield break;
 
-        // Si este es el primer slow, guardamos el estado base
         if (slowersCount == 0)
-        {
-            // baseSpeed ya contiene la velocidad del SO; currentSpeed podrÌa haber sido modificada por otros efectos
-            // Para aplicar la slow mantendremos baseSpeed como referencia:
             currentSpeed = currentSpeed * amount;
-        }
         else
-        {
-            // Si ya hay slows activos, multiplicamos la currentSpeed por el nuevo amount (stack multiplicativo)
             currentSpeed = currentSpeed * amount;
-        }
 
         slowersCount++;
 
-        // Esperamos en tiempo real (ignora Time.timeScale) para que funcione aun si el juego est· pausado
         yield return new WaitForSecondsRealtime(duration);
 
-        // Al quitar un slow, decrementamos contador y si llega a cero, restauramos la velocidad base desde el SO
         slowersCount = Mathf.Max(0, slowersCount - 1);
 
         if (slowersCount == 0)
-        {
-            // Restauramos a la velocidad base definida por el ScriptableObject
             currentSpeed = baseSpeed;
-        }
         else
-        {
-            // Si quedan slows, una aproximaciÛn simple: restauramos a baseSpeed y reaplicamos los slows restantes
-            // (si necesitas precisiÛn por diferentes amounts, lleva una lista de amounts en vez de contador)
-            currentSpeed = baseSpeed; // base
-            // Nota: para precisiÛn con diferentes amounts necesitarÌas almacenar los amounts en una lista y recalcular la multiplicaciÛn.
-        }
+            currentSpeed = baseSpeed;
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
+#endif
