@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainTower
   - Enemigo
+  - Turret
   layers:
   - Default
   - TransparentFX

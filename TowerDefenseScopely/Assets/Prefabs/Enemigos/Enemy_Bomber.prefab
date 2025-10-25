@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 4b2fa3eea24c53247b32d93431f0284f, type: 2}
   bombPrefab: {fileID: 0}
-  attackRange: 5
+  attackRange: 1.5
   throwInterval: 2
   bombFlightTime: 1
 --- !u!95 &3065673610749380006
