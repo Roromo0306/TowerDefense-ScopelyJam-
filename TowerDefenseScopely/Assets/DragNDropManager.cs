@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class DragNDropManager : MonoBehaviour
 {
     public Camera cam;
     public Tilemap tilemap;
+
+    public Canvas canvas;
 
     private Vector3Int? lastHighlightedCell = null;
 
@@ -25,14 +28,18 @@ public class DragNDropManager : MonoBehaviour
         Vector3Int cellPos = tilemap.WorldToCell(worldPos);
         TileBase tile = tilemap.GetTile(cellPos);
 
+        ElixirBar elixir = canvas.GetComponent<ElixirBar>();
+
         if (Input.GetMouseButtonDown(0))
         {
+            elixir.currentElixir -= 2;
             Vector3 spawnPos = tilemap.CellToWorld(cellPos);
             Instantiate(torretas[0], spawnPos, Quaternion.identity);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
+            elixir.currentElixir -= 2;
             Vector3 spawnPos = tilemap.CellToWorld(cellPos);
             Instantiate(torretas[1], spawnPos, Quaternion.identity);
         }
