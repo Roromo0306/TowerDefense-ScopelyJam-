@@ -16,6 +16,9 @@ public class Ataque : MonoBehaviour
     private bool PuedeAtacar = true;
     private bool IniciarCooldown = false;
 
+    public GameObject Bala;
+    public float bulletSpeed = 3f;
+
     [Header("Lista donde se guardan los enemigos para atacarlos")]
     public List<GameObject> enemigos;
 
@@ -91,7 +94,16 @@ public class Ataque : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            Debug.Log("Ayuda");
+
+            Vector3 dir = (collision.transform.position - transform.position).normalized;
+            GameObject b = Instantiate(Bala, transform.position + dir * 0.1f, Quaternion.identity);
+
+            BulletMover mover = b.GetComponent<BulletMover>();
+            if (mover == null) mover = b.AddComponent<BulletMover>();
+
+            mover.direction = dir;
+            mover.speed = bulletSpeed;
+
             IniciarCooldown = true;
             enemigos.Add(collision.gameObject);
         }

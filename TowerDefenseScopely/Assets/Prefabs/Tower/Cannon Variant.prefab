@@ -89,6 +89,10 @@ PrefabInstance:
       value: 0.76729554
       objectReference: {fileID: 0}
     - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: Bala
+      value: 
+      objectReference: {fileID: 5414267853576396411, guid: b5ef3a9f6eaf14f41b51cd295058e0c9, type: 3}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: enemigoGameObject.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -153,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1257da2dc702244ba34fbce29d00136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Para: 0
 --- !u!114 &3371997210293541076 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2740966625730531480, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
