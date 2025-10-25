@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Capa -1
+    uniqueID: 3239274231
+    locked: 0
+  - name: Capa 0
+    uniqueID: 1988983365
+    locked: 0
+  - name: Capa 1
+    uniqueID: 1482234115
+    locked: 0
