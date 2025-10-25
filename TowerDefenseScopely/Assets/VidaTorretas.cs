@@ -10,7 +10,7 @@ public class VidaTorretas : MonoBehaviour
     public EnemyData_SO enemigo;
     public Image barraVida;
 
-    public GameObject panelHasPerdido;
+    
 
     private SeleccionAtacante seleccion;
     private float SaludMax;
@@ -20,7 +20,7 @@ public class VidaTorretas : MonoBehaviour
         seleccion = GetComponent<SeleccionAtacante>();
         Salud = seleccion.salud;
         SaludMax = seleccion.salud;
-        panelHasPerdido.SetActive(false);
+        
     }
 
     bool finished = false;
@@ -43,21 +43,5 @@ public class VidaTorretas : MonoBehaviour
         }
     }
 
-    public void Reintentar()
-    {
-
-        SceneManager.LoadScene("Juego");
-        Time.timeScale = 1;
-        Debug.Log("timescale a 1");
-        finished = false;
-
-    }
-
-    public void Salir()
-    {
-
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1;
-    }
 
 }
