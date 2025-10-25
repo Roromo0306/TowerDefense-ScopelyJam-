@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     protected void FixedUpdate()
     {
         MoveTowardsTarget();
+        Debug.Log(currentHealth);
     }
 
     protected void MoveTowardsTarget()
