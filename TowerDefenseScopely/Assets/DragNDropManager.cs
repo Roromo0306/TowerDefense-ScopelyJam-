@@ -48,7 +48,7 @@ public class DragNDropManager : MonoBehaviour
 
         if (tile != null)
         {
-            Debug.Log("Mouse over tile at cell " + cellPos + " : " + tile.name);
+            //Debug.Log("Mouse over tile at cell " + cellPos + " : " + tile.name);
 
             if (!lastHighlightedCell.HasValue || lastHighlightedCell.Value != cellPos)
             {
@@ -61,7 +61,7 @@ public class DragNDropManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Mouse over no tile at cell " + cellPos);
+            //Debug.Log("Mouse over no tile at cell " + cellPos);
 
             if (lastHighlightedCell.HasValue)
             {

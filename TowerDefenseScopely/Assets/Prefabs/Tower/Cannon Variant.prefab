@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 642493686204058865, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 3627162819169059569, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_Radius
       value: 0.366
@@ -84,6 +88,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.76729554
       objectReference: {fileID: 0}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: enemigoGameObject.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: enemigoGameObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 950551487391784080, guid: 580128e554c41e74cb6c302baa1d3b61, type: 3}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: enemigoGameObject.Array.data[1]
+      value: 
+      objectReference: {fileID: 5158279325016150700, guid: a2df7ffee7401d146a49431a7e5b2dfd, type: 3}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: enemigoGameObject.Array.data[2]
+      value: 
+      objectReference: {fileID: 8873700076601536897, guid: 477481cffb408334e8bc4e25e78fd37f, type: 3}
+    - target: {fileID: 8393298802156342276, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: enemigoGameObject.Array.data[3]
+      value: 
+      objectReference: {fileID: 5409201465493341127, guid: 8789d5e758336644eb9283a76d03cb3f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

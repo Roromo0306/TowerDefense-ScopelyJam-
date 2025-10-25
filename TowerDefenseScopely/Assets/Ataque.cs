@@ -6,8 +6,8 @@ using UnityEngine;
 public class Ataque : MonoBehaviour
 {
     public SeleccionAtacante seleccion;
-    public EnemyData_SO enemigo;
-    public Enemy enemy;
+    //public EnemyData_SO enemigo;
+    //public Enemy enemy;
 
     private float PosicionGameobject;
     public float ataque;
@@ -16,7 +16,14 @@ public class Ataque : MonoBehaviour
     private bool PuedeAtacar = true;
     private bool IniciarCooldown = false;
 
+    [Header("Lista donde se guardan los enemigos para atacarlos")]
     public List<GameObject> enemigos;
+
+    [Header("Lista de enemigos")]
+    public List<GameObject> enemigoGameObject;
+
+    [Header("Lista de scripts enemigos")]
+    public List<Enemy> enemy;
     void Start()
     {
         ataque = seleccion.ataque;
@@ -44,11 +51,31 @@ public class Ataque : MonoBehaviour
                 {
                     if (enemigos[i] != null)
                     {
-
-                        Esbirros es = enemigos[i].GetComponent<Esbirros>();
-
                         
-                        es.TakeDamage(ataque, es.enemyData.damageType);
+                        if(enemigoGameObject[0].name == enemigos[i].name)
+                        {
+                            Esbirros es = enemigos[i].GetComponent<Esbirros>();
+                            es.TakeDamage(ataque, es.enemyData.damageType);
+                        }
+
+                        if (enemigoGameObject[1].name == enemigos[i].name)
+                        {
+                            Montapuercos es = enemigos[i].GetComponent<Montapuercos>();
+                            es.TakeDamage(ataque, es.enemyData.damageType);
+                        }
+
+                        if (enemigoGameObject[2].name == enemigos[i].name)
+                        {
+                            Tanque es = enemigos[i].GetComponent<Tanque>();
+                            es.TakeDamage(ataque, es.enemyData.damageType);
+                        }
+
+                        if (enemigoGameObject[3].name == enemigos[i].name)
+                        {
+                            BomberEnemy es = enemigos[i].GetComponent<BomberEnemy>();
+                            es.TakeDamage(ataque, es.enemyData.damageType);
+                        }
+
                     }
                 }
                 PuedeAtacar = false;
@@ -64,6 +91,7 @@ public class Ataque : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemigo"))
         {
+            Debug.Log("Ayuda");
             IniciarCooldown = true;
             enemigos.Add(collision.gameObject);
         }

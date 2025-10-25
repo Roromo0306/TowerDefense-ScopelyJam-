@@ -31,6 +31,7 @@ public class ManagerEnemigos : MonoBehaviour
         Enemy enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         Transform transform = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        Instantiate(enemy, transform.position, Quaternion.identity);
+        Enemy EnemigoInstanciado = Instantiate(enemy, transform.position, Quaternion.identity);
+        EnemigoInstanciado.name = enemy.name;
     }
 }

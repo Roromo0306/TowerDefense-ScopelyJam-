@@ -258,11 +258,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seleccion: {fileID: 7065978990814946627}
-  enemigo: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
-  enemy: {fileID: 0}
   ataque: 0
   TiempoCooldown: 2
   enemigos: []
+  enemigoGameObject:
+  - {fileID: 950551487391784080, guid: 580128e554c41e74cb6c302baa1d3b61, type: 3}
+  - {fileID: 5158279325016150700, guid: a2df7ffee7401d146a49431a7e5b2dfd, type: 3}
+  - {fileID: 8873700076601536897, guid: 477481cffb408334e8bc4e25e78fd37f, type: 3}
+  - {fileID: 5409201465493341127, guid: 8789d5e758336644eb9283a76d03cb3f, type: 3}
+  enemy:
+  - {fileID: 8582089424658599939, guid: 580128e554c41e74cb6c302baa1d3b61, type: 3}
+  - {fileID: -8955232335122090527, guid: a2df7ffee7401d146a49431a7e5b2dfd, type: 3}
+  - {fileID: 1125337655337643101, guid: 477481cffb408334e8bc4e25e78fd37f, type: 3}
+  - {fileID: 536444353060432568, guid: 8789d5e758336644eb9283a76d03cb3f, type: 3}
 --- !u!1 &9000241479288416627
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +286,7 @@ GameObject:
   - component: {fileID: 578160892664454182}
   m_Layer: 0
   m_Name: TorreDaga
-  m_TagString: MainTower
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +375,7 @@ MonoBehaviour:
   Salud: 0
   enemigo: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
   barraVida: {fileID: 1190129834143898313}
+  panelHasPerdido: {fileID: 0}
 --- !u!114 &7065978990814946627
 MonoBehaviour:
   m_ObjectHideFlags: 0
