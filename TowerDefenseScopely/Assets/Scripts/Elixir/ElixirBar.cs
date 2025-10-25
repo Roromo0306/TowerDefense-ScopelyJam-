@@ -19,7 +19,7 @@ public class ElixirBar : MonoBehaviour
     void Start()
     {
         elixirSlider.maxValue= maxElixir;
-        elixirSlider.value = currentElixir;
+        elixirText.text = currentElixir.ToString();
 
     }
 
@@ -27,6 +27,7 @@ public class ElixirBar : MonoBehaviour
     void Update()
     {
         RegenerarElixir();
+        UpdateUI();
       
     }
 
@@ -43,7 +44,22 @@ public class ElixirBar : MonoBehaviour
     void UpdateUI()
     {
         elixirSlider.value = currentElixir;
-
+        elixirText.text = Mathf.FloorToInt(currentElixir).ToString();
       
+    }
+
+    public bool HasEnoughElixir(float cost)
+    {
+        return currentElixir <= cost;
+    }
+
+    public void SpendElixir(float cost)
+    {
+        currentElixir -= cargaElixir;
+
+        if(currentElixir < 0)
+        {
+            currentElixir = 0;
+        }
     }
 }
