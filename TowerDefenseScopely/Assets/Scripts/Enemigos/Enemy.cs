@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
+
+
         HandleMovement();
     }
 
@@ -65,7 +67,7 @@ public class Enemy : MonoBehaviour
 
         // Calcula la distancia al objetivo actual
         float distanceToTarget = Vector2.Distance(transform.position, currentTarget.position);
-
+        Debug.Log(distanceToTarget);
         // ✅ Si está dentro del rango, moverse hacia el objetivo
         if (distanceToTarget <= detectionRange)
         {

@@ -116,6 +116,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 642493686204058865, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1080286025369654999}
+    - targetCorrespondingSourceObject: {fileID: 642493686204058865, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4833949774616739694}
   m_SourcePrefab: {fileID: 100100000, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
 --- !u!1 &11535654763021501 stripped
 GameObject:
@@ -138,6 +141,18 @@ MonoBehaviour:
   enemigo: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
   barraVida: {fileID: 3371997210293541076}
   panelHasPerdido: {fileID: 0}
+--- !u!114 &-4833949774616739694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11535654763021501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1257da2dc702244ba34fbce29d00136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3371997210293541076 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2740966625730531480, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
