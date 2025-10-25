@@ -12,9 +12,26 @@ public class LightningSpell : Spell
             Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy != null)
             {
+                // Ignorar Montapuercos
+                if (enemy.gameObject.name.Contains("Montapuercos"))
+                {
+                    Debug.Log("Ignorado Montapuercos");
+                    continue;
+                }
+
+                Debug.Log("Golpeando a: " + enemy.gameObject.name);
                 enemy.TakeDamage(damage, DamageType.Magical);
             }
         }
+
         Destroy(gameObject, 0.2f);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+#endif
 }

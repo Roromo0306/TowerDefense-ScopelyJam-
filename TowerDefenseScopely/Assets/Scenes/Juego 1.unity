@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 665254483}
   tilemap: {fileID: 190946027}
+  canvas: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   torretas:
@@ -11028,6 +11029,18 @@ PrefabInstance:
     - target: {fileID: 6508949155567560644, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681139349960363905, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 665254483}
+    - target: {fileID: 6681139349960363905, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681139349960363905, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7039325857132877541, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalPosition.x
