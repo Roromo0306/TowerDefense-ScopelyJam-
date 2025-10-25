@@ -9,6 +9,8 @@ public class Countdown : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public GameObject panelVictoria;
+   
+
 
     [Header("Tiempo Inicial")]
     public float startTime = 120f;

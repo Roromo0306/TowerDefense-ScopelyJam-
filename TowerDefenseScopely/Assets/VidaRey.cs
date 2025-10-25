@@ -16,21 +16,26 @@ public class VidaRey : MonoBehaviour
     private float SaludMax;
     void Start()
     {
+        Time.timeScale = 1;
         seleccion = GetComponent<SeleccionAtacante>();
         Salud = seleccion.salud;
         SaludMax = seleccion.salud;
         panelHasPerdido.SetActive(false);
     }
 
+    bool finished = false;
+
     void Update()
     {
         barraVida.fillAmount = Mathf.Clamp01(Salud/ SaludMax);
 
-        if(Salud <= 0)
+        if(Salud <= 0 && !finished)
         {
-            Destroy(this.gameObject);
+
+            finished = true;            
             panelHasPerdido.SetActive(true);
             Time.timeScale = 0;
+            //Destroy(this.gameObject);
         }
     }
 
@@ -44,14 +49,19 @@ public class VidaRey : MonoBehaviour
 
     public void Reintentar()
     {
-        Time.timeScale = 1;
+        
         SceneManager.LoadScene("Juego");
+        Time.timeScale = 1;
+        Debug.Log("timescale a 1");
+        finished = false;
+
     }
 
     public void Salir()
     {
-        Time.timeScale = 1;
+        
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 
 }

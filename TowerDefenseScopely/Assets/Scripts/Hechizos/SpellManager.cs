@@ -12,13 +12,13 @@ public class SpellManager : MonoBehaviour
     void Update()
     {
         // 🖱️ Clic izquierdo = Lightning
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             TryCastSpell(lightningPrefab);
         }
 
         // 🖱️ Clic derecho = Freeze
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             TryCastSpell(freezePrefab);
         }

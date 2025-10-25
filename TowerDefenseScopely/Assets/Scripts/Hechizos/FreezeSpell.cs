@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FreezeSpell : Spell
 {
-    public float slowAmount = 0.5f;
+    public float slowAmount = 0.5f;   // multiplicador (0.5 = 50% speed)
     public float freezeTime = 3f;
 
     protected override void OnCast()
@@ -14,19 +14,12 @@ public class FreezeSpell : Spell
             Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy != null)
             {
-                StartCoroutine(FreezeEnemy(enemy));
+                if (enemy.gameObject.name.Contains("Enemy_Monta"))
+                    continue;
+                // Ejecutamos la coroutine en el enemy para que use WaitForSecondsRealtime y sea seguro
+                enemy.StartCoroutine(enemy.ApplySlow(slowAmount, freezeTime));
             }
         }
         Destroy(gameObject, duration);
     }
-
-    private IEnumerator FreezeEnemy(Enemy enemy)
-    {
-        float originalSpeed = enemy.enemyData.moveSpeed;
-        enemy.enemyData.moveSpeed *= slowAmount;
-        yield return new WaitForSeconds(freezeTime);
-        if (enemy != null)
-            enemy.enemyData.moveSpeed = originalSpeed;
-    }
 }
-
