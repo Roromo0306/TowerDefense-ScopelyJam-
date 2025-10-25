@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8578db63b6117a4c8df68f45ffd3b62, type: 3}
   m_Name: Esbirros
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyTipe: 0
-  attackTargetType: 0
+  enemyName: Esbirros
+  enemyTipe: 1
+  attackTargetType: 2
   damageType: 0
   maxHealth: 100
   moveSpeed: 2
