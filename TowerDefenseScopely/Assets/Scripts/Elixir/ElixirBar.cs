@@ -36,5 +36,14 @@ public class ElixirBar : MonoBehaviour
         {
             currentElixir += cargaElixir * Time.deltaTime;
         }
+
+        currentElixir = Mathf.Min(currentElixir, maxElixir);
+    }
+
+    void UpdateUI()
+    {
+        elixirSlider.value = currentElixir;
+
+      
     }
 }
