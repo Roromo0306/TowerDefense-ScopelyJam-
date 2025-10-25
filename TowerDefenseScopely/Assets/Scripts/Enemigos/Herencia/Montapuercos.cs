@@ -4,11 +4,5 @@ using UnityEngine;
 
 public class Montapuercos : Enemy
 {
-    protected void MoveTowardsTarget()
-    {
-        if (currentTarget != null)
-        {
-            base.MoveTowardsTarget(currentTarget.position);
-        }
-    }
+    [SerializeField] new float attackRange = 5f;
 }

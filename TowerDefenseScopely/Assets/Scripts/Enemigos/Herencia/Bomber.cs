@@ -4,12 +4,12 @@ public class BomberEnemy : Enemy
 {
     [Header("Bomb Settings")]
     public GameObject bombPrefab;
-    public float attackRange = 5f;      // rango para detectar torretas
+    new float turrentAttackRange = 5f;      // rango para detectar torretas
     public float throwInterval = 2f;    // tiempo entre lanzamientos
     public float bombFlightTime = 1f;   // duración del vuelo
 
     private float throwTimer;
-
+    [SerializeField] new float attackRange = 5f;
     protected void FixedUpdate()
     {
         base.FixedUpdate(); // mantiene movimiento normal hacia la torre
@@ -26,7 +26,7 @@ public class BomberEnemy : Enemy
             {
                 float distance = Vector2.Distance(transform.position, turret.position);
 
-                if (distance <= attackRange)
+                if (distance <= turrentAttackRange)
                 {
                     rb.velocity = Vector2.zero; // se detiene antes de lanzar
 
@@ -71,12 +71,7 @@ public class BomberEnemy : Enemy
         return closest;
     }
 
-    protected void MoveTowardsTarget()
-    {
-        if (currentTarget != null)
-        {
-            base.MoveTowardsTarget(currentTarget.position);
-        }
-    }
+  
+    
 }
 

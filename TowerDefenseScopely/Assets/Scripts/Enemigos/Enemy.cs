@@ -28,8 +28,10 @@ public class Enemy : MonoBehaviour
         baseSpeed = enemyData.moveSpeed;
         currentSpeed = baseSpeed;
 
+        // Dirección inicial hacia la derecha (puedes cambiarla si tus enemigos salen de otro lado)
         initialDirection = Vector2.right;
 
+        // Busca la torre principal por su tag
         GameObject tower = GameObject.FindGameObjectWithTag("MainTower");
         if (tower != null)
             mainTower = tower.transform;
@@ -37,8 +39,6 @@ public class Enemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-
-
         HandleMovement();
     }
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
 
         // Calcula la distancia al objetivo actual
         float distanceToTarget = Vector2.Distance(transform.position, currentTarget.position);
-        Debug.Log(distanceToTarget);
+
         // ✅ Si está dentro del rango, moverse hacia el objetivo
         if (distanceToTarget <= detectionRange)
         {
