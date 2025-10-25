@@ -21,7 +21,11 @@ public class Enemy : MonoBehaviour
     protected void FixedUpdate()
     {
         MoveTowardsTarget();
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
     }
 
     protected void MoveTowardsTarget()
