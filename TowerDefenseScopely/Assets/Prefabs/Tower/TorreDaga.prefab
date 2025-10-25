@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 6108212371287090916}
   - component: {fileID: 7065978990814946627}
   - component: {fileID: 578160892664454182}
+  - component: {fileID: 7674991488495580074}
   m_Layer: 0
   m_Name: TorreDaga
   m_TagString: Turret
@@ -440,3 +441,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &7674991488495580074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000241479288416627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c44d8b5e2480344d83f6e9905852f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Salud: 0
+  enemigo: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
+  barraVida: {fileID: 1190129834143898313}
+  panelHasPerdido: {fileID: 0}
