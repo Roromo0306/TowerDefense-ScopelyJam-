@@ -53,7 +53,7 @@ public class BomberEnemy : Enemy
 
     Transform FindNearestTurret()
     {
-        // Busca todas las torretas en escena (asumiendo que usan el tag "Turret")
+        
         GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
         Transform closest = null;
         float minDist = Mathf.Infinity;

@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,23 +10,20 @@ public class ElixirBar : MonoBehaviour
 
     [Header("Elixir Settings")]
     public float maxElixir = 10f;
-    public float currentElixir = 0f;
-    public float cargaElixir = 1f;
+    public float currentElixir = 5f;
+    public float cargaElixir = 1f; // cantidad regenerada por segundo
 
-    // Start is called before the first frame update
     void Start()
     {
-        elixirSlider.maxValue= maxElixir;
-        elixirText.text = currentElixir.ToString();
-
+        elixirSlider.maxValue = maxElixir;
+        elixirSlider.value = currentElixir;
+        UpdateUI();
     }
 
-    // Update is called once per frame
     void Update()
     {
         RegenerarElixir();
         UpdateUI();
-      
     }
 
     void RegenerarElixir()
@@ -36,30 +31,27 @@ public class ElixirBar : MonoBehaviour
         if (currentElixir < maxElixir)
         {
             currentElixir += cargaElixir * Time.deltaTime;
+            currentElixir = Mathf.Min(currentElixir, maxElixir);
         }
-
-        currentElixir = Mathf.Min(currentElixir, maxElixir);
     }
 
     void UpdateUI()
     {
         elixirSlider.value = currentElixir;
         elixirText.text = Mathf.FloorToInt(currentElixir).ToString();
-      
     }
 
+    // ✅ CORRECTO: debe ser >= para poder lanzar hechizo
     public bool HasEnoughElixir(float cost)
     {
-        return currentElixir <= cost;
+        return currentElixir >= cost;
     }
 
+    // ✅ CORRECTO: se resta el coste, no la tasa de carga
     public void SpendElixir(float cost)
     {
-        currentElixir -= cargaElixir;
-
-        if(currentElixir < 0)
-        {
-            currentElixir = 0;
-        }
+        currentElixir -= cost;
+        currentElixir = Mathf.Max(0, currentElixir);
     }
 }
+

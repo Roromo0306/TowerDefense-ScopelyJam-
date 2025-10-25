@@ -18,8 +18,14 @@ public class EnemyData_SO : ScriptableObject
     public float attackRange = 1.5f;
     public float attackRate = 1f;
 
+    [Header("Coste Elixir")]
+    public float elixirCost = 2f;
+
     [Header("Resistencias")]
     [Range(0f,1f)] public float physicalResistance = 0.5f;
     [Range(0f,1f)] public float magicalResistance = 0.5f;
+
+    [Header("Inmunidades")]
+    public bool immuneToSpells= false;
 
 }

@@ -21,7 +21,11 @@ public class Enemy : MonoBehaviour
     protected void FixedUpdate()
     {
         MoveTowardsTarget();
+<<<<<<< Updated upstream
        // Debug.Log(currentHealth);
+=======
+        
+>>>>>>> Stashed changes
     }
 
     protected void MoveTowardsTarget()
@@ -45,26 +49,35 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount, DamageType damageType)
     {
-        float finalDamage = amount;
-
-        if(damageType == DamageType.Physical)
+        if ((damageType == DamageType.Magical && enemyData.immuneToSpells))
         {
-            finalDamage *= (1- enemyData.physicalResistance);
+            Debug.Log(enemyData.enemyName + " es inmune a " + damageType + "!");
+            return;
         }
 
-        if(damageType == DamageType.Magical)
+        float finalDamage = amount;
+
+
+        if (damageType == DamageType.Physical)
+        {
+            finalDamage *= (1 - enemyData.physicalResistance);
+        }
+
+        if (damageType == DamageType.Magical)
         {
             finalDamage *= (1 - enemyData.magicalResistance);
         }
 
         currentHealth -= finalDamage;
 
-        if(currentHealth <= 0)
+        Debug.Log(enemyData.enemyName + " recibió " + finalDamage + " de daño " + damageType);
+
+        if (currentHealth <= 0)
         {
             Die();
         }
-
     }
+ 
 
     public void Die()
     {

@@ -2,39 +2,18 @@ using UnityEngine;
 
 public abstract class Spell : MonoBehaviour
 {
-    [Header("Base Spell Settings")]
+    [Header("Base Settings")]
     public float radius = 3f;
-    public float duration = 2f;
+    public float duration = 1f;
+    public float elixirCost = 3f;
 
-    protected float timer;
-
-    protected virtual void Start()
+    public void Cast()
     {
-        timer = 0f;
+        OnCast();
+        Destroy(gameObject, duration);
     }
 
-    protected  void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= duration)
-        {
-            OnSpellEnd();
-            Destroy(gameObject);
-        }
-    }
-
-    protected abstract void ApplyEffect(Collider2D[] targets);
-
-    protected  void OnSpellEnd()
-    {
-        // Para efectos visuales (humo, partículas, etc.)
-    }
-
-    protected void AffectEnemies()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
-        ApplyEffect(hits);
-    }
+    protected abstract void OnCast();
 
     private void OnDrawGizmosSelected()
     {
