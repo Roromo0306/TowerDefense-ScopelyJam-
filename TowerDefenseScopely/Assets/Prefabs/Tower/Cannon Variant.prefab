@@ -20,6 +20,18 @@ PrefabInstance:
       propertyPath: atacante
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6508949155567560644, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508949155567560644, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508949155567560644, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7039325857132877541, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.26

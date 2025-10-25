@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VidaRey : MonoBehaviour
@@ -9,6 +10,8 @@ public class VidaRey : MonoBehaviour
     public EnemyData_SO enemigo;
     public Image barraVida;
 
+    public GameObject panelHasPerdido;
+
     private SeleccionAtacante seleccion;
     private float SaludMax;
     void Start()
@@ -16,6 +19,7 @@ public class VidaRey : MonoBehaviour
         seleccion = GetComponent<SeleccionAtacante>();
         Salud = seleccion.salud;
         SaludMax = seleccion.salud;
+        panelHasPerdido.SetActive(false);
     }
 
     void Update()
@@ -25,6 +29,8 @@ public class VidaRey : MonoBehaviour
         if(Salud <= 0)
         {
             Destroy(this.gameObject);
+            panelHasPerdido.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
@@ -35,4 +41,17 @@ public class VidaRey : MonoBehaviour
             Salud -= enemigo.attackDamage;
         }
     }
+
+    public void Reintentar()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Juego");
+    }
+
+    public void Salir()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
