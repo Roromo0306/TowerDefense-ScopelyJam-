@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b8622187d2c794a9fdcc98f2d52176, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  atacante: 0
+  atacante: 5
   tipoataque: 0
   lugarataque: 0
-  salud: 0
-  ataque: 0
+  salud: 55
+  ataque: 25
   velocidad: 0

@@ -15,6 +15,6 @@ MonoBehaviour:
   atacante: 1
   tipoataque: 0
   lugarataque: 1
-  salud: 0
-  ataque: 0
-  velocidad: 0
+  salud: 65
+  ataque: 30
+  velocidad: 1
