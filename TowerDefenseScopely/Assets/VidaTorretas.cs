@@ -10,7 +10,12 @@ public class VidaTorretas : MonoBehaviour
     public EnemyData_SO enemigo;
     public Image barraVida;
 
-    
+    public List<GameObject> EnemigosColisionado;
+    private RigidbodyConstraints2D previousConstraints;
+    private Vector2 previousVelocity;
+
+    private int NumeroLista;
+    private bool Deja = false;
 
     private SeleccionAtacante seleccion;
     private float SaludMax;
@@ -31,6 +36,21 @@ public class VidaTorretas : MonoBehaviour
 
         if (Salud <= 0)
         {
+            Deja = true;
+            NumeroLista = EnemigosColisionado.Count;
+
+            for (int i = 0; i < EnemigosColisionado.Count; i++)
+            {
+                if(EnemigosColisionado[i] != null)
+                {
+                    Rigidbody2D rb = EnemigosColisionado[i].GetComponent<Rigidbody2D>();
+
+                    rb.constraints = previousConstraints;
+                    rb.velocity = previousVelocity;
+                }
+                
+            }
+
             Destroy(this.gameObject);
         }
     }
@@ -39,17 +59,22 @@ public class VidaTorretas : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            if (!Deja)
             {
-                Debug.Log("Rigidbody");
-                rb.velocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                EnemigosColisionado.Add(collision.gameObject);
+                Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    previousVelocity = rb.velocity;
+                    previousConstraints = rb.constraints;
+
+                    rb.velocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                }
+                Salud -= enemigo.attackDamage;
             }
-            Salud -= enemigo.attackDamage;
+            
         }
     }
-
-
 }
