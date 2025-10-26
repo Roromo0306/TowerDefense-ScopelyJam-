@@ -16,10 +16,12 @@ MonoBehaviour:
   enemyTipe: 1
   attackTargetType: 2
   damageType: 0
-  maxHealth: 10
+  maxHealth: 100
   moveSpeed: 2
   attackDamage: 10
   attackRange: 1.5
   attackRate: 1
+  elixirCost: 2
   physicalResistance: 0.5
   magicalResistance: 0.5
+  immuneToSpells: 0

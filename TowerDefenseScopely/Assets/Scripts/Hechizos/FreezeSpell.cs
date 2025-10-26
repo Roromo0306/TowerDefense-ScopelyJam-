@@ -16,10 +16,15 @@ public class FreezeSpell : Spell
             {
                 if (enemy.gameObject.name.Contains("Enemy_Monta"))
                     continue;
-                // Ejecutamos la coroutine en el enemy para que use WaitForSecondsRealtime y sea seguro
+
+                // Ralentizar
                 enemy.StartCoroutine(enemy.ApplySlow(slowAmount, freezeTime));
+
+                // Efecto visual azul
+                enemy.StartCoroutine(enemy.FlashFreeze(freezeTime));
             }
         }
+
         Destroy(gameObject, duration);
     }
 }

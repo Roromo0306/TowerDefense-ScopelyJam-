@@ -156,7 +156,20 @@ public class Enemy : MonoBehaviour
         else
             currentSpeed = baseSpeed;
     }
+    public IEnumerator FlashFreeze(float duration)
+    {
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+        if (rend == null) yield break;
 
+        Color original = rend.color;
+        Color flashColor = Color.cyan; // azul hielo
+
+        rend.color = flashColor;
+        yield return new WaitForSeconds(duration);
+
+        if (rend != null)
+            rend.color = original;
+    }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
