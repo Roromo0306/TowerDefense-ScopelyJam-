@@ -40,4 +40,9 @@ public class MainMenuController : MonoBehaviour
     {
         tutorialPanel.SetActive(false);
     }
+
+    public void CerrarJuego()
+    {
+        Application.Quit();
+    }
 }

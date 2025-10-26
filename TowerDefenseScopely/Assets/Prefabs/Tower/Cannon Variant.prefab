@@ -130,7 +130,8 @@ PrefabInstance:
       objectReference: {fileID: 5409201465493341127, guid: 8789d5e758336644eb9283a76d03cb3f, type: 3}
     m_RemovedComponents:
     - {fileID: 8227087445180275567, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2539553149733298281, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 642493686204058865, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Salud: 0
   enemigo: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
-  barraVida: {fileID: 3371997210293541076}
+  barraVida: {fileID: 0}
   EnemigosColisionado: []
   CoolDown: 2
   IniciarCooldown: 0
@@ -177,14 +178,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Para: 0
---- !u!114 &3371997210293541076 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2740966625730531480, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
-  m_PrefabInstance: {fileID: 631175781329471564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
