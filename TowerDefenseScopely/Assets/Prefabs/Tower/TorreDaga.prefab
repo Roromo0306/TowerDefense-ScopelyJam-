@@ -259,9 +259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seleccion: {fileID: 7065978990814946627}
   ataque: 0
-  TiempoCooldown: 2
-  Bala: {fileID: 5414267853576396411, guid: b5ef3a9f6eaf14f41b51cd295058e0c9, type: 3}
-  bulletSpeed: 3
+  TiempoCooldown: 0.75
+  Bala: {fileID: 5414267853576396411, guid: a1b22e1d046e8b34caf2d8e27a68efa0, type: 3}
+  bulletSpeed: 20
   enemigos: []
   enemigoGameObject:
   - {fileID: 950551487391784080, guid: 580128e554c41e74cb6c302baa1d3b61, type: 3}
