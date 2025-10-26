@@ -10,7 +10,7 @@ public class DragNDropManager : MonoBehaviour
     public Tilemap tilemap;
 
     public Canvas canvas;
-
+    public ElixirBar elixir;
     private Vector3Int? lastHighlightedCell = null;
 
     public Color highlightColor = Color.yellow;
@@ -45,36 +45,39 @@ public class DragNDropManager : MonoBehaviour
 
         Vector3Int cellPos = tilemap.WorldToCell(worldPos);
         TileBase tile = tilemap.GetTile(cellPos);
-
-        // Click izquierdo: torreta 0
-        if (Input.GetMouseButtonDown(0))
+        if(elixir.currentElixir > 3)
         {
-            // Encontrar la celda central (si existe) en un radio de 1 (3x3)
-            Vector3Int centerCell = FindCenterTileCell(worldPos, cellPos, 1);
-            Vector3 spawnPos = tilemap.GetCellCenterWorld(centerCell);
+            // Click izquierdo: torreta 0
+            if (Input.GetMouseButtonDown(0))
+            {
+                // Encontrar la celda central (si existe) en un radio de 1 (3x3)
+                Vector3Int centerCell = FindCenterTileCell(worldPos, cellPos, 1);
+                Vector3 spawnPos = tilemap.GetCellCenterWorld(centerCell);
 
-            if (elixirBar != null)
-                elixirBar.currentElixir -= elixirCost;
+                if (elixirBar != null)
+                    elixirBar.currentElixir -= elixirCost;
 
-            if (torretas != null && torretas.Count > 0 && torretas[0] != null)
-                Instantiate(torretas[0], spawnPos, torretas[0].transform.rotation);
-            else
-                Debug.LogWarning("Torreta 0 no asignada en la lista 'torretas'.");
-        }
+                if (torretas != null && torretas.Count > 0 && torretas[0] != null)
+                    Instantiate(torretas[0], spawnPos, torretas[0].transform.rotation);
+                else
+                    Debug.LogWarning("Torreta 0 no asignada en la lista 'torretas'.");
+            }
 
-        // Click derecho: torreta 1
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3Int centerCell = FindCenterTileCell(worldPos, cellPos, 1);
-            Vector3 spawnPos = tilemap.GetCellCenterWorld(centerCell);
+            // Click derecho: torreta 1
+            if (Input.GetMouseButtonDown(1))
+            {
+                Vector3Int centerCell = FindCenterTileCell(worldPos, cellPos, 1);
+                Vector3 spawnPos = tilemap.GetCellCenterWorld(centerCell);
 
-            if (elixirBar != null)
-                elixirBar.currentElixir -= elixirCost;
+                if (elixirBar != null)
+                    elixirBar.currentElixir -= elixirCost;
 
-            if (torretas != null && torretas.Count > 1 && torretas[1] != null)
-                Instantiate(torretas[1], spawnPos, torretas[1].transform.rotation);
-            else
-                Debug.LogWarning("Torreta 1 no asignada en la lista 'torretas'.");
+                if (torretas != null && torretas.Count > 1 && torretas[1] != null)
+                    Instantiate(torretas[1], spawnPos, torretas[1].transform.rotation);
+                else
+                    Debug.LogWarning("Torreta 1 no asignada en la lista 'torretas'.");
+            }
+
         }
 
         // Highlight del tile bajo el ratón (igual que antes)

@@ -10,7 +10,7 @@ public class ElixirBar : MonoBehaviour
 
     [Header("Elixir Settings")]
     public float maxElixir = 10f;
-    public float currentElixir = 5f;
+    [Min(0)]public float currentElixir = 5f;
     public float cargaElixir = 1f; // cantidad regenerada por segundo
 
     void Start()

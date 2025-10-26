@@ -16,9 +16,9 @@ MonoBehaviour:
   enemyTipe: 0
   attackTargetType: 0
   damageType: 0
-  maxHealth: 100
+  maxHealth: 250
   moveSpeed: 2
-  attackDamage: 10
+  attackDamage: 5
   attackRange: 1.5
   attackRate: 1
   elixirCost: 2

@@ -363,6 +363,7 @@ MonoBehaviour:
   cam: {fileID: 665254483}
   tilemap: {fileID: 190946027}
   canvas: {fileID: 1640763336}
+  elixir: {fileID: 1640763333}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   torretas:
@@ -4309,7 +4310,7 @@ MonoBehaviour:
   elixirText: {fileID: 351368276}
   maxElixir: 10
   currentElixir: 0
-  cargaElixir: 1.5
+  cargaElixir: 0.5
 --- !u!114 &1640763334
 MonoBehaviour:
   m_ObjectHideFlags: 0
