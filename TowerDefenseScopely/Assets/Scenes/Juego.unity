@@ -4293,7 +4293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 725480908}
   panelVictoria: {fileID: 337908193}
-  startTime: 120
+  startTime: 90
 --- !u!114 &1640763333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   elixirText: {fileID: 351368276}
   maxElixir: 10
   currentElixir: 3
-  cargaElixir: 0.65
+  cargaElixir: 0.55
 --- !u!114 &1640763334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,23 +5026,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.18
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalScale.y
-      value: -0.023773588
+      value: -0.49528307
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.33962268
+      value: 7.075472
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31.7
+      value: 511
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6
+      value: -216
       objectReference: {fileID: 0}
     - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -5082,7 +5082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6681139349960363905, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7039325857132877541, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_LocalScale.x

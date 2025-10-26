@@ -48,9 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   duration: 1
-  elixirCost: 3
+  elixirCost: 2
   slowAmount: 0.5
-  freezeTime: 0.5
+  freezeTime: 2
   animator: {fileID: 2903525784341362108}
 --- !u!212 &3295333180807118400
 SpriteRenderer:
