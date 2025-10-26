@@ -1680,7 +1680,7 @@ MonoBehaviour:
   - {fileID: 1217523317}
   - {fileID: 1885243228}
   - {fileID: 333107115}
-  SpawnInterval: 2
+  SpawnInterval: 2.75
 --- !u!4 &231921266
 Transform:
   m_ObjectHideFlags: 0
@@ -4309,8 +4309,8 @@ MonoBehaviour:
   elixirSlider: {fileID: 956478652}
   elixirText: {fileID: 351368276}
   maxElixir: 10
-  currentElixir: 0
-  cargaElixir: 0.5
+  currentElixir: 3
+  cargaElixir: 0.65
 --- !u!114 &1640763334
 MonoBehaviour:
   m_ObjectHideFlags: 0

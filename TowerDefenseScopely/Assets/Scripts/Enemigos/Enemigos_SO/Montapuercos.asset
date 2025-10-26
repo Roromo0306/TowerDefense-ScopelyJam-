@@ -24,4 +24,4 @@ MonoBehaviour:
   elixirCost: 2
   physicalResistance: 0.5
   magicalResistance: 0.5
-  immuneToSpells: 1
+  immuneToSpells: 0
