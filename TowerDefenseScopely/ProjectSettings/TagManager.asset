@@ -53,3 +53,6 @@ TagManager:
   - name: Capa 1
     uniqueID: 1482234115
     locked: 0
+  - name: Capa 2
+    uniqueID: 4141819177
+    locked: 0

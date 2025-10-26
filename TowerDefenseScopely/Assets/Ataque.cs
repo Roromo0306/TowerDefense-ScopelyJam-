@@ -18,6 +18,7 @@ public class Ataque : MonoBehaviour
 
     public GameObject Bala;
     public float bulletSpeed = 3f;
+    private GameObject colision = null;
 
     [Header("Lista donde se guardan los enemigos para atacarlos")]
     public List<GameObject> enemigos;
@@ -50,6 +51,7 @@ public class Ataque : MonoBehaviour
         {
             if (PuedeAtacar)
             {
+                DisparaBala();
                 for (int i = 0; i < enemigos.Count; i++)
                 {
                     if (enemigos[i] != null)
@@ -94,17 +96,15 @@ public class Ataque : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-
-
-
+            colision = collision.gameObject;
             IniciarCooldown = true;
             enemigos.Add(collision.gameObject);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void DisparaBala()
     {
-        Vector3 dir = (collision.transform.position - transform.position).normalized;
+        Vector3 dir = (colision.transform.position - transform.position).normalized;
         GameObject b = Instantiate(Bala, transform.position + dir * 0.1f, Quaternion.identity);
 
         BulletMover mover = b.GetComponent<BulletMover>();
