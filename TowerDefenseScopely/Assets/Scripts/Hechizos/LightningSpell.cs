@@ -3,6 +3,7 @@ using UnityEngine;
 public class LightningSpell : Spell
 {
     public float damage = 50f;
+    public Animator animator;
 
     protected override void OnCast()
     {
@@ -23,8 +24,9 @@ public class LightningSpell : Spell
                 enemy.TakeDamage(damage, DamageType.Magical);
             }
         }
-
-        Destroy(gameObject, 0.2f);
+        animator.SetTrigger("Rayo");
+        Destroy(gameObject, 1f);
+       
     }
 
 #if UNITY_EDITOR

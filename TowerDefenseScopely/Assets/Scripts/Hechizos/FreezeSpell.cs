@@ -4,8 +4,8 @@ using System.Collections;
 public class FreezeSpell : Spell
 {
     public float slowAmount = 0.5f;   // multiplicador (0.5 = 50% speed)
-    public float freezeTime = 3f;
-
+    public float freezeTime = 0.5f;
+    public Animator animator;
     protected override void OnCast()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -24,7 +24,7 @@ public class FreezeSpell : Spell
                 enemy.StartCoroutine(enemy.FlashFreeze(freezeTime));
             }
         }
-
-        Destroy(gameObject, duration);
+        animator.SetTrigger("hielo");
+        Destroy(gameObject, freezeTime);
     }
 }
