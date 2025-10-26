@@ -24,6 +24,7 @@ public class VidaTorretas : MonoBehaviour
     public float CoolDown = 2f;
     public bool IniciarCooldown = false;
     public bool PuedeAtacar = true;
+
     void Start()
     {
         Time.timeScale = 1;
@@ -36,24 +37,24 @@ public class VidaTorretas : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("La vida de la torre es " + Salud);
+        //Debug.Log("La vida de la torre es " + Salud);
         barraVida.fillAmount = Mathf.Clamp01(Salud / SaludMax);
 
         if(CoolDown <= 0)
         {
-            Debug.Log("Cooldown cero");
+           // Debug.Log("Cooldown cero");
             PuedeAtacar = true;
             CoolDown = 2f;
         }
         else
         {
             CoolDown -= Time.deltaTime;
-            Debug.Log("El cooldown es "+CoolDown);
+           // Debug.Log("El cooldown es "+CoolDown);
         }
 
         if (Salud <= 0)
         {
-            Debug.Log("Salud es cero");
+           // Debug.Log("Salud es cero");
             Deja = true;
             NumeroLista = EnemigosColisionado.Count;
 
@@ -62,6 +63,10 @@ public class VidaTorretas : MonoBehaviour
                 if(EnemigosColisionado[i] != null)
                 {
                     Rigidbody2D rb = EnemigosColisionado[i].GetComponent<Rigidbody2D>();
+                    SpriteRenderer sr = EnemigosColisionado[i].GetComponent<SpriteRenderer>();
+
+                    sr.color = Color.white;
+                    //Debug.Log($"El enemigo {EnemigosColisionado[i].name} tiene el color {sr.color}");
 
                     rb.constraints = previousConstraints;
                     rb.velocity = previousVelocity;
@@ -79,7 +84,7 @@ public class VidaTorretas : MonoBehaviour
         {
             if (!Deja)
             {
-                Debug.Log("Colision enemigo");
+               // Debug.Log("Colision enemigo");
                 EnemigosColisionado.Add(collision.gameObject);
                 Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
                 if (rb != null)
@@ -106,7 +111,7 @@ public class VidaTorretas : MonoBehaviour
             Salud -= enemigo.attackDamage;
             PuedeAtacar = false;
 
-            Debug.Log("Ataca");
+           // Debug.Log("Ataca");
             
         }
     }

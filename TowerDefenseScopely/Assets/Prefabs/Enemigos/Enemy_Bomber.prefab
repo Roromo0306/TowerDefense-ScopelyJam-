@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8619393596967235530}
   - component: {fileID: 536444353060432568}
   - component: {fileID: 3065673610749380006}
+  - component: {fileID: 1409178997794934669}
   m_Layer: 0
   m_Name: Enemy_Bomber
   m_TagString: Enemigo
@@ -200,3 +201,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1409178997794934669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409201465493341127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7db74c864417f47ae2fd73bbfd32d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

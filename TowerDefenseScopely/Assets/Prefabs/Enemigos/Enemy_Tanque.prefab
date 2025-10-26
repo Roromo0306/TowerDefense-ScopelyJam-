@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9007962158878154853}
   - component: {fileID: 1125337655337643101}
   - component: {fileID: 7182557406416079821}
+  - component: {fileID: 245068195854827360}
   m_Layer: 0
   m_Name: Enemy_Tanque
   m_TagString: Enemigo
@@ -197,3 +198,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &245068195854827360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873700076601536897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7db74c864417f47ae2fd73bbfd32d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

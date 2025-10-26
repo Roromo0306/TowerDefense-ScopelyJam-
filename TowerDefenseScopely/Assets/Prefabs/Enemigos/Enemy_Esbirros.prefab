@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2423526254627323703}
   - component: {fileID: -4753915743920795931}
   - component: {fileID: 1031441164472273659}
+  - component: {fileID: 5739883576389014319}
   m_Layer: 0
   m_Name: Enemy_Esbirros
   m_TagString: Enemigo
@@ -213,3 +214,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5739883576389014319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950551487391784080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7db74c864417f47ae2fd73bbfd32d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

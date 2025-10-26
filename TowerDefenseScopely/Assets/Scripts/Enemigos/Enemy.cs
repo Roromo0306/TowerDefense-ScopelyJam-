@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour
             finalDamage *= (1 - enemyData.magicalResistance);
 
         currentHealth -= finalDamage;
-        Debug.Log(enemyData.enemyName + " recibió " + finalDamage + " de daño " + damageType + ". Vida restante: " + currentHealth);
+        //Debug.Log(enemyData.enemyName + " recibió " + finalDamage + " de daño " + damageType + ". Vida restante: " + currentHealth);
 
         if (currentHealth <= 0f)
         {
