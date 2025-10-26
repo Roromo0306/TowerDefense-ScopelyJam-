@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -958.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757102197944121550, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -476.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3627162819169059569, guid: a2397980c93ec0c4e9facc6792b9909e, type: 3}
       propertyPath: m_Radius
       value: 0.366

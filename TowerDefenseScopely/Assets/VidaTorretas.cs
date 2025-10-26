@@ -39,6 +39,14 @@ public class VidaTorretas : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemigo"))
         {
+            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Debug.Log("Rigidbody");
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
             Salud -= enemigo.attackDamage;
         }
     }

@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     protected float currentHealth;
 
     protected float baseSpeed;
-    public float currentSpeed { get; protected set; }
+    public float currentSpeed { get; set; }
 
     private int slowersCount = 0;
     private Vector2 initialDirection;

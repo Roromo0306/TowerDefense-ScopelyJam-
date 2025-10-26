@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +44,14 @@ public class VidaRey : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemigo"))
         {
+            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            if(rb != null)
+            {
+                Debug.Log("Rigidbody");
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
             Salud -= enemigo.attackDamage;
         }
     }
