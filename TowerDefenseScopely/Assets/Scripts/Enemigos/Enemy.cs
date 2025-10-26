@@ -9,17 +9,21 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     protected Transform currentTarget;
     protected float currentHealth;
-
+    public Animator anim;
     protected float baseSpeed;
     public float currentSpeed { get; set; }
 
     private int slowersCount = 0;
     private Vector2 initialDirection;
+    private float tiempoMuerte = 1f;
 
     [Header("Detección Torre / Torretas")]
     public float detectionRange = 20f;
     private Transform mainTower;
     private bool chasingTower = false;
+
+    // Estado
+    private bool isDead = false;
 
     protected void Start()
     {
@@ -28,10 +32,8 @@ public class Enemy : MonoBehaviour
         baseSpeed = enemyData.moveSpeed;
         currentSpeed = baseSpeed;
 
-        // Dirección inicial hacia la derecha (puedes cambiarla si tus enemigos salen de otro lado)
         initialDirection = Vector2.right;
 
-        // Busca la torre principal por su tag
         GameObject tower = GameObject.FindGameObjectWithTag("MainTower");
         if (tower != null)
             mainTower = tower.transform;
@@ -39,36 +41,31 @@ public class Enemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
+        if (isDead) return; // No mover si está muerto
         HandleMovement();
     }
 
     private void HandleMovement()
     {
-        // Si no hay torre ni torretas, sigue recto
         if (mainTower == null)
         {
             rb.velocity = initialDirection * currentSpeed;
             return;
         }
 
-        // 🔍 Buscar torreta más cercana (si existe alguna)
         Transform nearestTurret = FindNearestTurret();
 
-        // Si hay una torreta dentro del rango, la tomamos como objetivo
         if (nearestTurret != null)
         {
             currentTarget = nearestTurret;
         }
         else
         {
-            // Si no hay torretas cercanas, la torre principal es el objetivo
             currentTarget = mainTower;
         }
 
-        // Calcula la distancia al objetivo actual
         float distanceToTarget = Vector2.Distance(transform.position, currentTarget.position);
 
-        // ✅ Si está dentro del rango, moverse hacia el objetivo
         if (distanceToTarget <= detectionRange)
         {
             MoveTowardsTarget(currentTarget.position);
@@ -76,13 +73,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // ✅ Si está fuera del rango: seguir recto
             rb.velocity = initialDirection * currentSpeed;
             chasingTower = false;
         }
     }
 
-    // 🔍 Función para encontrar la torreta más cercana
     private Transform FindNearestTurret()
     {
         GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
@@ -104,13 +99,16 @@ public class Enemy : MonoBehaviour
 
     public void MoveTowardsTarget(Vector2 targetPosition)
     {
+        if (isDead) return;
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         rb.velocity = direction * currentSpeed;
     }
 
     public void TakeDamage(float amount, DamageType damageType)
     {
-        if ((damageType == DamageType.Magical && enemyData.immuneToSpells))
+        if (isDead) return; // ignorar si ya está muerto
+
+        if (damageType == DamageType.Magical && enemyData.immuneToSpells)
         {
             Debug.Log(enemyData.enemyName + " es inmune a " + damageType + "!");
             return;
@@ -125,27 +123,50 @@ public class Enemy : MonoBehaviour
             finalDamage *= (1 - enemyData.magicalResistance);
 
         currentHealth -= finalDamage;
-        Debug.Log(enemyData.enemyName + " recibió " + finalDamage + " de daño " + damageType);
+        Debug.Log(enemyData.enemyName + " recibió " + finalDamage + " de daño " + damageType + ". Vida restante: " + currentHealth);
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
+        {
+            // Marca el estado muerto
+            isDead = true;
+
+            // Para movimiento
+            if (rb != null) rb.velocity = Vector2.zero;
+
+            // Desactiva colisiones para que no siga recibiendo interacciones
+            Collider2D col = GetComponent<Collider2D>();
+            if (col != null) col.enabled = false;
+
+            // Lanza la animación de muerte si existe
+            if (anim != null)
+            {
+                anim.SetTrigger("muerte");
+                Debug.Log("Estoy triggering la muerte");
+            }
+            else
+            {
+                Debug.LogWarning("Animator no asignado en " + gameObject.name);
+            }
+
+            // Destruye el objeto tras tiempoMuerte (asegúrate que timeMuerte >= duracion animación)
             Die();
+        }
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+        // Puedes agregar efectos aquí (partículas, sonido...)
+        Destroy(gameObject, tiempoMuerte);
     }
 
     public IEnumerator ApplySlow(float amount, float duration)
     {
         if (this == null || gameObject == null) yield break;
 
-        if (slowersCount == 0)
-            currentSpeed = currentSpeed * amount;
-        else
-            currentSpeed = currentSpeed * amount;
-
         slowersCount++;
+
+        // Aplica solo la reducción relativa al baseSpeed — ejemplo: amount = 0.5 = 50% velocidad
+        currentSpeed = baseSpeed * amount;
 
         yield return new WaitForSecondsRealtime(duration);
 
@@ -154,15 +175,16 @@ public class Enemy : MonoBehaviour
         if (slowersCount == 0)
             currentSpeed = baseSpeed;
         else
-            currentSpeed = baseSpeed;
+            currentSpeed = baseSpeed * 1f; // o calcula acumulación si la quieres
     }
+
     public IEnumerator FlashFreeze(float duration)
     {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
         if (rend == null) yield break;
 
         Color original = rend.color;
-        Color flashColor = Color.cyan; // azul hielo
+        Color flashColor = Color.cyan;
 
         rend.color = flashColor;
         yield return new WaitForSeconds(duration);
@@ -170,6 +192,7 @@ public class Enemy : MonoBehaviour
         if (rend != null)
             rend.color = original;
     }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

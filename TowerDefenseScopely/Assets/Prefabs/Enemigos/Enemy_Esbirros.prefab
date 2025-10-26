@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: d31047086a4d49c47af27eeb35ec2da5, type: 2}
+  anim: {fileID: 1031441164472273659}
   detectionRange: 10
   attackRange: 5
 --- !u!61 &2423526254627323703

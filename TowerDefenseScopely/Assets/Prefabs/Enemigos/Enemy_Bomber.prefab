@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 4b2fa3eea24c53247b32d93431f0284f, type: 2}
+  anim: {fileID: 3065673610749380006}
   detectionRange: 10
   bombPrefab: {fileID: 7519034525466992245, guid: 5ac9f6c358e0a614098c8959425f8a2e, type: 3}
   throwInterval: 2
