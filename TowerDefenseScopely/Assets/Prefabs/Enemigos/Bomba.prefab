@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7540726561069614562}
   m_Layer: 0
   m_Name: Bomba
-  m_TagString: Enemigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
