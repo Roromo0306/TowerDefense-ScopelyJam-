@@ -9,7 +9,6 @@ public class VidaTorretas : MonoBehaviour
 {
     public float Salud;
     public EnemyData_SO enemigo;
-    public Image barraVida;
 
     public List<GameObject> EnemigosColisionado;
     private RigidbodyConstraints2D previousConstraints;
@@ -36,9 +35,6 @@ public class VidaTorretas : MonoBehaviour
 
     void Update()
     {
-
-        //Debug.Log("La vida de la torre es " + Salud);
-        barraVida.fillAmount = Mathf.Clamp01(Salud / SaludMax);
 
         if(CoolDown <= 0)
         {
@@ -111,7 +107,7 @@ public class VidaTorretas : MonoBehaviour
             Salud -= enemigo.attackDamage;
             PuedeAtacar = false;
 
-           // Debug.Log("Ataca");
+           Debug.Log("Ataca");
             
         }
     }

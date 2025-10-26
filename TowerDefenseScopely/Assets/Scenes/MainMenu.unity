@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Defiende la torre del gradioso Rey Kiwi y su pelo\n\t1. Con ambos clicks
+  m_text: "Defiende la torre del grandioso Rey Kiwi y su pelo\n\t1. Con ambos clicks
     podr\xE1s colocar torretas\n\t2. Con la tecla Q podr\xE1s tirar un rel\xE1mpago\n\t3.
     Con la tecla W podr\xE1s congelar a los enemigos\n\nSi consigues aguantar el
     tiempo establecido habr\xE1s conseguido salvar el reino."
