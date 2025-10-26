@@ -95,18 +95,23 @@ public class Ataque : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemigo"))
         {
 
-            Vector3 dir = (collision.transform.position - transform.position).normalized;
-            GameObject b = Instantiate(Bala, transform.position + dir * 0.1f, Quaternion.identity);
 
-            BulletMover mover = b.GetComponent<BulletMover>();
-            if (mover == null) mover = b.AddComponent<BulletMover>();
-
-            mover.direction = dir;
-            mover.speed = bulletSpeed;
 
             IniciarCooldown = true;
             enemigos.Add(collision.gameObject);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Vector3 dir = (collision.transform.position - transform.position).normalized;
+        GameObject b = Instantiate(Bala, transform.position + dir * 0.1f, Quaternion.identity);
+
+        BulletMover mover = b.GetComponent<BulletMover>();
+        if (mover == null) mover = b.AddComponent<BulletMover>();
+
+        mover.direction = dir;
+        mover.speed = bulletSpeed;
     }
 
 
